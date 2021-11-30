@@ -1,0 +1,34 @@
+.expenses{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.amount{
+    display: flex;
+    width: 30%;
+}
+
+.title{
+    display: flex;
+    width: 37%;
+    float: left;
+}
+
+.date{
+    display: flex;
+    margin-right: 10px;
+    width: 33%;
+    float: left;
+}
+
+.itemList{
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    justify-content: space-between;
+    background-color: #3f3f3f;
+    border-radius: 10px;
+    width: 300px;
+}

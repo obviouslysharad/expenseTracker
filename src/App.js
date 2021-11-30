@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Expenses from './components/Expenses/Expenses'
+import ExpenseForm from './components/NewExpense/ExpenseForm'
 
 function App() {
+
+  const expenses = [
+    { id: 1,
+      title: 'Facewash',
+      date: new Date(2021, 10, 19),
+      amount: 150
+    },
+    { id: 2,
+      title: 'Soap',
+      date: new Date(2021, 9, 9),
+      amount: 120
+    },
+    { id: 3,
+      title: 'Dishwash',
+      date: new Date(2021, 10, 18),
+      amount: 20
+    },
+    { id: 4,
+      title: 'iPhone',
+      date: new Date(2021, 11, 14),
+      amount: 50000
+    },
+  ]
+  
+  function formSubmit(e){
+    console.log(e);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="form-card">
+        <ExpenseForm onFormSubmit = {formSubmit}/>
+      </div>
+      <div className="wrapper-card">
+        <Expenses expenses = {expenses} />
+      </div>
     </div>
   );
 }

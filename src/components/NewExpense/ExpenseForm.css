@@ -1,0 +1,38 @@
+.expenseForm{
+    display: flex;
+    padding: 5px;
+}
+
+.expenseForm input{
+    border: 0px solid;
+    border-radius: 5px;
+    width: 65%;
+    float: right;
+}
+
+.label{
+    width: 35%;
+    float: left;
+}
+
+.form{
+    padding: 10px;
+    background-color: rgb(65, 3, 3);
+    border-radius: 5px;
+    border: 0px solid;
+    box-shadow: 0px 0px 20px red;
+}
+
+.btn{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+btn:hover{
+    background-color: red;
+    width: 10%;
+
+}
