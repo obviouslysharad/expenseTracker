@@ -2,8 +2,15 @@ import React from 'react'
 import './Expenses.css'
 
 const Expenses = (props) => {
+
+    function handleDelete(e) {
+        console.log(e);
+        props.setExpenses(props.expenses.slice(0,props.expenses.length - 1))
+        
+    }
+
     const expense = props.expenses.map(item => (
-        <div className = "itemList">
+        <div className = "itemList" onClick = {handleDelete}>
             <div className = "title">
                 {item.title}
             </div>
@@ -11,7 +18,7 @@ const Expenses = (props) => {
                 {item.amount}
             </div>
             <div className = "date">
-                {item.date.toLocaleDateString('en-US', )}
+                {item.date}
             </div>
         </div>
     ));

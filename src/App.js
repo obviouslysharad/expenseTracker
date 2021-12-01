@@ -1,31 +1,36 @@
 import './App.css';
 import Expenses from './components/Expenses/Expenses'
 import ExpenseForm from './components/NewExpense/ExpenseForm'
+import {useState} from 'react';
 
 function App() {
 
-  const expenses = [
+  const expenss = [
     { id: 1,
       title: 'Facewash',
-      date: new Date(2021, 10, 19),
+      date: '14/10/2020',
       amount: 150
     },
     { id: 2,
       title: 'Soap',
-      date: new Date(2021, 9, 9),
+      date: '14/10/2020',
       amount: 120
     },
     { id: 3,
       title: 'Dishwash',
-      date: new Date(2021, 10, 18),
+      date: '14/10/2020',
       amount: 20
     },
     { id: 4,
       title: 'iPhone',
-      date: new Date(2021, 11, 14),
+      date: '14/10/2020',
       amount: 50000
     },
   ]
+
+  const [expenses, setExpenses] = useState(expenss)
+
+  console.log(expenses);
   
   function formSubmit(e){
     console.log(e);
@@ -34,11 +39,11 @@ function App() {
   return (
     <div className="App">
       <div className="form-card">
-        <ExpenseForm onFormSubmit = {formSubmit}/>
+        <ExpenseForm setExpenses = {setExpenses} onFormSubmit = {formSubmit}/>
       </div>
-      <div className="wrapper-card">
-        <Expenses expenses = {expenses} />
-      </div>
+      {expenses.length == 0 ? (<div className = "notAvailable"> Not available</div>): (<div className="wrapper-card">
+        <Expenses expenses = {expenses} setExpenses = {setExpenses} />
+      </div>)}
     </div>
   );
 }

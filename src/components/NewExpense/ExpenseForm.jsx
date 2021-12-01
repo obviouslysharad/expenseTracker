@@ -6,14 +6,19 @@ const ExpenseForm = (props) => {
     const [desc, setDesc] = useState("");
     const [amount, setAmount] = useState("");
     const [date, setDate] = useState("");
+    const [newExpense, setNewExpense] = useState({})
 
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        props.onFormSubmit(e)
+        setNewExpense();
+        if(e.target[0].value && e.target[1].value && e.target[2].value){
+            props.setExpenses(previousExpense => ([...previousExpense, {title : e.target[0].value, date: e.target[2].value , amount: e.target[1].value}]));
+
+        }
         setDesc("");
         setAmount("");
-        setDate();
+        setDate("");
     }
 
     const handleDesc = (e) => setDesc(e.target.value);
