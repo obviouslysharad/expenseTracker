@@ -1,16 +1,23 @@
 import React from 'react'
+import {useState} from 'react';
 import './Expenses.css'
 
 const Expenses = (props) => {
 
+    const [newExpenses, setNewExpenses] = useState([]);
+
     function handleDelete(e) {
-        console.log(e);
-        props.setExpenses(props.expenses.slice(0,props.expenses.length - 1))
-        
+        props.expenses.splice(e, 1);
+        props.setExpenses([...props.expenses]);
     }
 
-    const expense = props.expenses.map(item => (
-        <div className = "itemList" onClick = {handleDelete}>
+    function handleSearch(e) {
+        const searchTerm = e.target.value;
+        if(searchTerm !== "") props.setExpenses(props.expenses.filter(item => item.title.includes(searchTerm)))
+    }
+
+    const expense = props.expenses.map((item, index) => (
+        <div className = "itemList" onClick = {() => handleDelete(index)}>
             <div className = "title">
                 {item.title}
             </div>
@@ -24,10 +31,11 @@ const Expenses = (props) => {
     ));
 
     return (
-        <div className="expenses">
-            {expense}
-        </div>
-    )
+      <div>
+        <input placeholder = "Search here" className="inpt" onChange={handleSearch} />
+        <div className="expenses">{newExpenses.length !== 0?newExpenses:expense}</div>
+      </div>
+    );
 }
 
 export default Expenses

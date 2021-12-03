@@ -14,8 +14,8 @@ const ExpenseForm = (props) => {
         setNewExpense();
         if(e.target[0].value && e.target[1].value && e.target[2].value){
             props.setExpenses(previousExpense => ([...previousExpense, {title : e.target[0].value, date: e.target[2].value , amount: e.target[1].value}]));
-
         }
+        else alert('Please fill every blank')
         setDesc("");
         setAmount("");
         setDate("");

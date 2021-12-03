@@ -31,4 +31,17 @@
     background-color: #3f3f3f;
     border-radius: 10px;
     width: 300px;
+    cursor: pointer;
+}
+
+.inpt{
+    width: 300px;
+    margin: 0 5px 10px 5px;;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+.inpt:focus{
+    background-color:lightgoldenrodyellow;
 }

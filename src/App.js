@@ -3,9 +3,11 @@ import Expenses from './components/Expenses/Expenses'
 import ExpenseForm from './components/NewExpense/ExpenseForm'
 import {useState} from 'react';
 
+
 function App() {
 
-  const expenss = [
+  const [transcript, setTranscript] = useState('');
+  const expensesArr = [
     { id: 1,
       title: 'Facewash',
       date: '14/10/2020',
@@ -27,21 +29,19 @@ function App() {
       amount: 50000
     },
   ]
-
-  const [expenses, setExpenses] = useState(expenss)
-
-  console.log(expenses);
   
+  const [expenses, setExpenses] = useState(expensesArr);
+
   function formSubmit(e){
     console.log(e);
   }
-
+  
   return (
     <div className="App">
       <div className="form-card">
         <ExpenseForm setExpenses = {setExpenses} onFormSubmit = {formSubmit}/>
       </div>
-      {expenses.length == 0 ? (<div className = "notAvailable"> Not available</div>): (<div className="wrapper-card">
+      {expenses.length === 0 ? (<div className = "notAvailable"> Not available</div>): (<div className="wrapper-card">
         <Expenses expenses = {expenses} setExpenses = {setExpenses} />
       </div>)}
     </div>
