@@ -5,6 +5,7 @@ import './Expenses.css'
 const Expenses = (props) => {
 
     const [newExpenses, setNewExpenses] = useState([]);
+    const [searchTerm, setSearchTerm] = useState(['']);
 
     function handleDelete(e) {
         props.expenses.splice(e, 1);
@@ -12,11 +13,17 @@ const Expenses = (props) => {
     }
 
     function handleSearch(e) {
-        const searchTerm = e.target.value;
-        if(searchTerm !== "") props.setExpenses(props.expenses.filter(item => item.title.includes(searchTerm)))
+        setSearchTerm(e.target.value);
+        if(searchTerm !== "") setNewExpenses(props.expenses.filter(item => item.title.includes(searchTerm)))
     }
 
-    const expense = props.expenses.map((item, index) => (
+    const expense = props.expenses.filter((item) => {
+        if(searchTerm == ""){
+            return item}
+        else if(item.title.toLowerCase().includes(searchTerm.toLowerCase())){
+            return item;
+        }
+    }).map((item, index) => (
         <div className = "itemList" onClick = {() => handleDelete(index)}>
             <div className = "title">
                 {item.title}
@@ -33,7 +40,7 @@ const Expenses = (props) => {
     return (
       <div>
         <input placeholder = "Search here" className="inpt" onChange={handleSearch} />
-        <div className="expenses">{newExpenses.length !== 0?newExpenses:expense}</div>
+        <div className="expenses">{expense}</div>
       </div>
     );
 }
