@@ -36,6 +36,7 @@ const Expenses = (props) => {
             </div>
         </div>
     ));
+    // Add dragable feature
 
     return (
       <div>
