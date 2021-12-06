@@ -24,7 +24,7 @@ const Expenses = (props) => {
             return item;
         }
     }).map((item, index) => (
-        <div className = "itemList" onClick = {() => handleDelete(index)}>
+        <div className = "itemList draggable " draggable = "true" onClick = {() => handleDelete(index)}>
             <div className = "title">
                 {item.title}
             </div>
@@ -38,7 +38,6 @@ const Expenses = (props) => {
     ));
     // Add dragable feature
     
-
     return (
       <div>
         <input placeholder = "Search here" className="inpt" onChange={handleSearch} />
