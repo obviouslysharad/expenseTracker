@@ -28,6 +28,7 @@ const Expenses = (props) => {
             <div className = "title">
                 {item.title}
             </div>
+            
             <div className = "amount">
                 {item.amount}
             </div>
