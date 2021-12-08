@@ -38,7 +38,8 @@ const Expenses = (props) => {
         </div>
     ));
     // Add dragable feature
-    
+
+        
     return (
       <div>
         <input placeholder = "Search here" className="inpt" onChange={handleSearch} />
